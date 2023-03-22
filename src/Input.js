@@ -1,22 +1,22 @@
 import { useState } from "react";
 import React from "react";
-import Props from "prop-types";
 
-function Input() {
+function Input(props) {
   const [text, setText] = useState("");
   function onChange(e) {
     setText(e.target.value);
   }
   function onSubmit(e) {
     e.preventDefault();
-    Props.onSendMessage(this.state.text);
+    setText("");
+    props.onSendMessage(text);
   }
   return (
     <div className="textInput">
-      <form onSubmit={(e) => onSubmit(e)}>
+      <form onSubmit={onSubmit}>
         <input
           value={text}
-          onChange={(e) => onChange(e)}
+          onChange={onChange}
           type="text"
           placeholder="Enter your message and press ENTER"
           autoFocus={true}
