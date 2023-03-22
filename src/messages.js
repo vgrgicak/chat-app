@@ -7,7 +7,7 @@ function Messages({ messages, currentMember }) {
       ? "Messages-message currentMember"
       : "Messages-message";
     return (
-      <li className={className}>
+      <li className={className} key={Math.random()}>
         <span
           className="avatar"
           style={{ backgroundColor: member.clientData.color }}
