@@ -1,7 +1,7 @@
 import React from "react";
 function Messages({ messages, currentMember }) {
   function renderMessage(message) {
-    const { member, text } = message;
+    const { member, data } = message;
     const messageFromMe = member.id === currentMember.id;
     const className = messageFromMe
       ? "Messages-message currentMember"
@@ -14,14 +14,12 @@ function Messages({ messages, currentMember }) {
         />
         <div className="Message-content">
           <div className="username">{member.clientData.username}</div>
-          <div className="text">{text}</div>
+          <div className="text">{data}</div>
         </div>
       </li>
     );
   }
-  return (
-    <ul className="Messages-list">{messages.map((m) => renderMessage(m))}</ul>
-  );
+  return <ul className="Messages-list">{messages.map(renderMessage)}</ul>;
 }
 
 export default Messages;

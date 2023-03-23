@@ -1,7 +1,7 @@
 import { useState } from "react";
 import React from "react";
 
-function Input(props) {
+function Sending(props) {
   const [text, setText] = useState("");
   function onChange(e) {
     setText(e.target.value);
@@ -27,4 +27,4 @@ function Input(props) {
   );
 }
 
-export default Input;
+export default Sending;
